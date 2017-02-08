@@ -38,7 +38,7 @@ namespace SignalVM
             while (registers[IP] < osSize)
             {
                 var instruction = new Instruction(ram, ref registers[IP]);
-                //Console.WriteLine(instruction + "\t");
+               // Console.WriteLine(instruction + "\ta:{0}", registers[0]);
               //  Console.WriteLine(stack.Count > 0 ? stack.Peek() : 0);
                 switch (instruction.OpCode)
                 {
@@ -170,10 +170,10 @@ namespace SignalVM
                         registers[instruction.Operand1] = ram[instruction.Immediate];
                         break;
                     case OpCode.Loadw:
-                        registers[instruction.Operand1] = (uint)BitConverter.ToInt16(ram, (int)registers[instruction.Operand2]);
+                        registers[instruction.Operand1] = (uint)BitConverter.ToUInt16(ram, (int)registers[instruction.Operand2]);
                         break;
                     case OpCode.Loadwi:
-                        registers[instruction.Operand1] = (uint)BitConverter.ToInt16(ram, (int)instruction.Immediate);
+                        registers[instruction.Operand1] = (uint)BitConverter.ToUInt16(ram, (int)instruction.Immediate);
                         break;
                     case OpCode.Stob:
                         if (registers[instruction.Operand1] == SERIAL_POSITION)

@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace SignalVM
+namespace SignalVM 
 {
     public class Instruction
     {
