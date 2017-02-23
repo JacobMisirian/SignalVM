@@ -82,6 +82,7 @@ namespace SignalAsm
                     case OpCode.Pop:
                     case OpCode.Inc:
                     case OpCode.Dec:
+                    case OpCode.Call:
                     case OpCode.Ret:
                         instruction.Operand1 = parseOperand();
                         break;
@@ -124,7 +125,6 @@ namespace SignalAsm
                     case OpCode.Jine:
                     case OpCode.Pushi:
                     case OpCode.Reti:
-                    case OpCode.Call:
                         instruction.Immediate = parseImmediate(instruction);
                         break;
                     case OpCode.Ston:

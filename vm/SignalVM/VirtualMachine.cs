@@ -38,8 +38,10 @@ namespace SignalVM
             while (registers[IP] < osSize)
             {
                 var instruction = new Instruction(ram, ref registers[IP]);
-               // Console.WriteLine(instruction + "\ta:{0}", registers[0]);
-              //  Console.WriteLine(stack.Count > 0 ? stack.Peek() : 0);
+                /*Console.Write(instruction + "\ta:{0}\t", registers[0]);
+                var temp = pop();
+                Console.WriteLine(temp);
+                push(temp);*/
                 switch (instruction.OpCode)
                 {
                     case OpCode.Add:
@@ -128,7 +130,7 @@ namespace SignalVM
                         break;
                     case OpCode.Call:
                         push(registers[IP]);
-                        registers[IP] = instruction.Immediate;
+                        registers[IP] = registers[instruction.Operand1];
                         break;
                     case OpCode.Ret:
                         registers[IP] = pop();

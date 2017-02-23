@@ -41,6 +41,7 @@ namespace SignalAsm.Scanner
                             scanString();
                             break;
                         default:
+                            whiteSpace();
                             Console.WriteLine("Error unknown char: {0}", readChar());
                             break;
                     }
